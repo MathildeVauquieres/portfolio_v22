@@ -1,0 +1,42 @@
+// <----------------------GRILLE---------------------->//
+
+// x-small-only = 459px et moins 
+// small-down = 639px et moins 
+// medium-only = entre 640 et 959px
+// large only = 960px et 1199px
+// x-large-up = minimum 1200px
+
+$small: 460px;
+$medium: 640px;
+$large: 960px;
+$x-large: 1200px;
+
+@mixin x-small-only() {
+    @media screen and (max-width: ($small - 1)) {
+        @content;
+    }
+}
+
+@mixin small-down() {
+    @media screen and (min-width: $small) and (max-width: ($medium - 1)) {
+        @content;
+    }
+}
+
+@mixin medium-only() {
+    @media screen and (min-width: $medium) and (max-width: ($large - 1)) {
+        @content;
+    }
+}
+
+@mixin large-only() {
+    @media screen and (min-width: $large) and (max-width: ($x-large - 1)) {
+        @content;
+    }
+}
+
+@mixin x-large-up() {
+    @media screen and (min-width: $x-large) {
+        @content;
+    }
+}
